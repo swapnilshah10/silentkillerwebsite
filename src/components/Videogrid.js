@@ -11,20 +11,23 @@ let url = `https://youtube.googleapis.com/youtube/v3/playlistItems?playlistId=${
 
 function Videogrid(props) {
   const [videos, setVideos] = useState([]);
-  const getvideo = async ()=> {
-      axios.get(url).then(res => {
-        const persons = res.data;
-        // setVideos({ persons });
-        // console.log(videos);
-        return persons
-      });
-    }
-  let vvideos = getvideo();
-  console.log(vvideos);
+    const getCustomersData = () => {
+      axios
+      .get(url)
+      .then(response => {
+        const posts = response.data;
+        console.log(posts);
+        setVideos({posts});
+      })
+      .catch(error => console.log(error));
+      };
+      getCustomersData();
+      // console.log(videos);
+      
   return (
     <div>
       Videogrid
-      <div className="row">
+      {/* <div className="row">
                         {vvideos.items.map((element) => {
                             if(!vvideos) return null;
                             else{
@@ -32,7 +35,7 @@ function Videogrid(props) {
                                 <Videos id={element.id ? element.id : ""} />
                             </div>}
                         })}
-      </div>
+      </div> */}
     </div>
   );
 }
