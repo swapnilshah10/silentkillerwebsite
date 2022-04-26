@@ -10,25 +10,22 @@ let url = `https://youtube.googleapis.com/youtube/v3/playlistItems?playlistId=${
 
 
 function Videogrid(props) {
-  const [videos, setVideos] = useState([]);
-    const getCustomersData = () => {
-      axios
-      .get(url)
-      .then(response => {
-        const posts = response.data;
-        console.log(posts);
-        setVideos({posts});
-      })
-      .catch(error => console.log(error));
-      };
-      getCustomersData();
-      // console.log(videos);
+    const [data, setData] = useState([])
+    useEffect(() => {
+      const fetchData = async () => {
+        const results = await axios(url);
+        setData(results.data.items) 
+        console.log(data);
+      }
+      fetchData();
+    })
+  
       
   return (
     <div>
       Videogrid
       {/* <div className="row">
-                        {vvideos.items.map((element) => {
+                        {video && video.map((element) => {
                             if(!vvideos) return null;
                             else{
                             return <div className="col-md-4" key={element.etag}>
