@@ -25,7 +25,6 @@ function Videogrid(props) {
   
   return (
     <div>
-      Videogrid
       <div className="row">
                         {data && data.map((element) => {
                             if(!data) return null;

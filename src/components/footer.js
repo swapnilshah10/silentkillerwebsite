@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div>©Copyright by SilentkillerOP</div>
+    <div className="text-center">©Copyright by SilentkillerOP</div>
   )
 }
 
