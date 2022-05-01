@@ -1,4 +1,4 @@
-## Building my own website (youtube clone) from scratch using youtube apis
+## Building my own website (youtube clone that has only my channel) in react using youtube apis 
 
 ## Available Scripts
 
