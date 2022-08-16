@@ -3,15 +3,9 @@ import Videos from "./Videos";
 import axios from "axios";
 
 let key = "AIzaSyCrB9e21ojlqFjuS4kbhEiAPEcORwcia-4";
-// let playlist_id = "PLc6bUwTVKwCPOYLwfpKp5uBxaK9dSl5Qx";
-// let url = `https://youtube.googleapis.com/youtube/v3/playlistItems?playlistId=${playlist_id}&key=${key}`;
-
-// let url=' https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C+id&playlistId=PLc6bUwTVKwCMfjMH3feuA0eGYabjU6A75&key=AIzaSyCrB9e21ojlqFjuS4kbhEiAPEcORwcia-4'
-
-// url = `https://youtube.googleapis.com/youtube/v3/playlistItems?playlistId=PLc6bUwTVKwCMfjMH3feuA0eGYabjU6A75&key=AIzaSyCrB9e21ojlqFjuS4kbhEiAPEcORwcia-4`;
-
 
 function Videogrid(props) {
+  let background_url = process.env.PUBLIC_URL  + '/images/background.jpg'
   let url = `https://www.googleapis.com/youtube/v3/playlistItems?maxResults=${props.max}&part=snippet%2C+id&playlistId=${props.playlist_id}&key=${key}`
   const [data, setData] = useState([])
     useEffect(() => {
@@ -21,20 +15,27 @@ function Videogrid(props) {
       }
       fetchData();
     },[]);
-      console.log(data);
-
-      const myStyle={
-        backgroundImage: 
- "url('https://www.pixelstalk.net/wp-content/uploads/2016/08/Download-HD-Best-Background-Photos.jpg')",
- height:'100%'
       
-    };
+      var myStyle={
+        backgroundImage: 
+ `url(${background_url})`,
+ height:'100%'   ,
+ backgroundSize: "cover",
+  backgroundRepeat: "repeat-y"
+};
   
+if(data.length < 5 && window.innerWidth > 900){
+  myStyle = {backgroundImage: `url(${background_url})`,
+  backgroundSize: "cover",
+  backgroundRepeat: "repeat-y",height: '100vh'}
+}
+
   return (
     <div>
       <div className="row" style={myStyle}>
                         {data && data.map((element) => {
                             if(!data) return null;
+                            else if (element.snippet.title === "Deleted video") return null;
                             else{
                             return <div className="col-md-3" key={element.etag}>
                                 <Videos videoId= {element.snippet.resourceId.videoId} videoTitle={element.snippet.title} thumbnail={element.snippet.thumbnails.high.url} updated={element.snippet.publishedAt}/>
