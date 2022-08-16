@@ -1,4 +1,4 @@
-## Building my own website (youtube clone) from scratch using youtube apis
+## Building my own website (youtube clone that has only my channel) in react using youtube apis 
 
 ## Available Scripts
 
@@ -23,3 +23,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+Screenshot of Home page
+![image](https://user-images.githubusercontent.com/80103384/166156918-ff3c6add-27cb-47f9-80db-6c87bdbb2133.png)
+
+Hosted on netify
+[Link to website](https://zippy-manatee-4d3b37.netlify.app/)
