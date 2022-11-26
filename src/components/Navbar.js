@@ -45,9 +45,9 @@ function Navbar() {
                 Social Medias
                 </a>
                 <ul className="dropdown-menu  bg-dark text-white" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item bg-dark text-white " target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/silentkillerop123/">Instagram</a></li>
+                  <li><a className="dropdown-item bg-dark text-white " target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ig_silentkiller_op/">Instagram</a></li>
                   <li >
-                <a className="dropdown-item  bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCzcKPLI9b0z-cUjCw6GFifA" >YouTube</a>
+                <a className="dropdown-item  bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@silentkillerop" >YouTube</a>
               </li>
                   <li><a className="dropdown-item  bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/silentkillerop2">Twitter</a></li>
                   <li><hr className="dropdown-divider" /></li>
