@@ -20,6 +20,7 @@ function Footer() {
         justifyContent: "start",
         alignItems: "start",
         paddingRight: "125px",
+        
       };
     }
   };
@@ -80,7 +81,7 @@ function Footer() {
                     className=""
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://twitter.com/silentkillerop2"
+                    href="https://twitter.com/swapnilshah102"
                     style={{ textDecoration: "none", color: "#6c757d" }}
                   >
                     Twitter
