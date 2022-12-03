@@ -1,14 +1,11 @@
-// import { waitFor } from "@testing-library/react";
 import React from "react";
-// import Videoplayer from "./Videoplayer";
-// import ReactPlayer from "react-player";
 
 function Videos(props) {
   let background_url = process.env.PUBLIC_URL + "/images/background.jpg";
   const myStyle = {
     backgroundImage: `url(${background_url})`,
   };
-  
+
   const myArray = props.videoTitle.split("#");
   let date = new Date(props.updated).toGMTString();
   date = date.slice(17, 22) + ", " + date.slice(4, 17);

@@ -5,76 +5,87 @@ function Footer() {
   let style = {
     backgroundImage: `url(${background_url})`,
   };
-  var width = window.innerWidth;
-var height = window.innerHeight;
-console.log(width, height);
-if (width < 540){
-    style = {
-        backgroundImage: `url(${background_url})`,
-        height: "100vh",
-        width: "100vw",
-    };
-}
+
+  let style2 = {};
+  let detecct_phone = () => {
+    var userAgent = navigator.userAgent.toLowerCase();
+    var Android = userAgent.indexOf("android") > -1;
+    var iPhone = userAgent.indexOf("iphone") > -1;
+    if (Android || iPhone) {
+      style2 = {
+        width: "5%",
+        whiteSpace: "nowrap",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "start",
+        alignItems: "start",
+        paddingRight: "125px",
+      };
+    }
+  };
+
+  detecct_phone();
   return (
     <>
       <footer
         className="text-center text-lg-start bg-light text-muted"
         style={style}
       >
-        <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-          
-        </section>
+        <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"></section>
         <section className="">
-          <div className="container text-center text-md-start mt-5"style = {{fontSize: 20}}>
+          <div
+            className="container text-center text-md-start mt-5"
+            style={{ fontSize: 20 }}
+          >
             <div className="row mt-3">
-
-              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" >
+              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">
-                  <i className="fas fa-gem me-3" style = {{fontSize: 20}}></i>❖S𝒊𝒍𝒆𝒏𝒕々𝒌𝒊𝒍𝒍𝒆𝒓࿐
+                  <i className="fas fa-gem me-3" style={{ fontSize: 20 }}></i>
+                  ❖S𝒊𝒍𝒆𝒏𝒕々𝒌𝒊𝒍𝒍𝒆𝒓࿐
                 </h6>
                 <p style={{}}>
                   Here you can see the content that is uploaded by your favrite
                   youtuber.
                 </p>
               </div>
-
-              <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" >
+              <div
+                className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4"
+                style={style2}
+              >
                 <h6 className="text-uppercase fw-bold mb-4">Connect with me</h6>
-                
-                    <li>
-                    <a
-                      className=" "
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://www.instagram.com/ig_silentkiller_op/"
-                      style={{ textDecoration: "none", color: "#6c757d"  }}
-                    >
-                      Instagram
-                    </a>
-                    </li>
-                    <li>
-                    <a  
-                      className=""
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://www.youtube.com/@silentkillerop"
-                      style={{ textDecoration: "none", color: "#6c757d" }}
-                    >
-                      YouTube
-                    </a>
-                    </li>
-                    <li>
-                    <a
-                      className=""
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://twitter.com/silentkillerop2"
-                      style={{ textDecoration: "none", color: "#6c757d" }}
-                    >
-                      Twitter
-                    </a>
-                    </li>
-                  
+                <li>
+                  <a
+                    className=" "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/ig_silentkiller_op/"
+                    style={{ textDecoration: "none", color: "#6c757d" }}
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className=""
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.youtube.com/@silentkillerop"
+                    style={{ textDecoration: "none", color: "#6c757d" }}
+                  >
+                    YouTube
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className=""
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://twitter.com/silentkillerop2"
+                    style={{ textDecoration: "none", color: "#6c757d" }}
+                  >
+                    Twitter
+                  </a>
+                </li>
               </div>
               <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">Contact</h6>

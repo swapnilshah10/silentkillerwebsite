@@ -22,6 +22,9 @@ function Videogrid(props) {
     height: "100%",
     backgroundSize: "cover",
     backgroundRepeat: "repeat-y",
+    padding: "10px",
+    margin : "0px",
+    border:" 10x solid black"
     // width : "100%",
   };
 
