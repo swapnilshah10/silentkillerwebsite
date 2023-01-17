@@ -8,7 +8,6 @@ function Videogrid(props) {
   let background_url = process.env.PUBLIC_URL + "/images/background.jpg";
   let url = `https://www.googleapis.com/youtube/v3/playlistItems?maxResults=${props.max}&part=snippet%2C+id&playlistId=${props.playlist_id}&key=${key}`;
   const [data, setData] = useState([]);
-  
   useEffect(() => {
     const fetchData = async () => {
       const results = await axios(url);
@@ -43,9 +42,10 @@ function Videogrid(props) {
       <div className="row" style={myStyle}>
         {data &&
           data.map((element) => {
-            if (!data) return null;
-            else if (element.snippet.title === "Deleted video") return null;
+            if (data === []) return null;
+            else if (element.snippet.title === "Deleted video" || element.snippet.title === "Private video") return null;
             else {
+              if (element.snippet.thumbnails.high.url)
               return (
                 <div className="col-md-3" key={element.etag}>
                   <Videos
@@ -56,6 +56,7 @@ function Videogrid(props) {
                   />
                 </div>
               );
+              return 0;
             }
           })}
       </div>
