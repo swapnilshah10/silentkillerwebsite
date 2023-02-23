@@ -38,6 +38,9 @@ function Navbar() {
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/drills">Drills</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/about">About me</Link>
+              </li>
               
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
