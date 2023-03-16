@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Videos from "./Videos";
 import axios from "axios";
 import Loading from "./Loading";
+import 'animate.css';
 let key = "AIzaSyCrB9e21ojlqFjuS4kbhEiAPEcORwcia-4";
 
 function Videogrid(props) {
@@ -13,7 +14,7 @@ function Videogrid(props) {
   useEffect(() => {
     const fetchData = async () => {
       const results = await axios(url);
-      setTimeout(() => setLoading(false), 1000);
+      setTimeout(() => setLoading(false), 500);
       setData(results.data.items);
     };
     fetchData();
@@ -51,7 +52,7 @@ function Videogrid(props) {
       else {
         if (element.snippet.thumbnails.high.url)
           return (
-            <div className="col-md-3" key={element.etag}>
+            <div className="col-md-3 animate__animated animate__flash animate__faster" key={element.etag}>
               <Videos
                 videoId={element.snippet.resourceId.videoId}
                 videoTitle={element.snippet.title}

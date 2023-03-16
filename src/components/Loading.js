@@ -1,6 +1,7 @@
 import "./css/loading.css";
 import React from "react";
 
+
 function Loading() {
   let background_url = process.env.PUBLIC_URL + "/images/background.jpg";
   var myStyle = {
@@ -20,7 +21,7 @@ function Loading() {
       <div
         aria-label="Orange and tan hamster running in a metal wheel"
         role="img"
-        className="wheel-and-hamster"
+        className=" wheel-and-hamster"
       >
         <div className="wheel"></div>
         <div className="hamster">
