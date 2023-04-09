@@ -60,18 +60,18 @@ function Bitly() {
   return (
     <div style={myStyle}>
       <div>{error && <div>{url.toUpperCase()} DOESNT EXIST</div>}</div>
-      <div class="container d-flex flex-column justify-content-center ">
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header bg-dark text-white">Shorten URL</div>
-              <div class="card-body">
+      <div className="container d-flex flex-column justify-content-center ">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-header bg-dark text-white">Shorten URL</div>
+              <div className="card-body">
                 <div>
                   <input
                     type="text"
                     name="long_url"
                     placeholder="Enter URL to shorten"
-                    class="form-control"
+                    className="form-control"
                     onChange={(e) => {
                       setLongUrl(e.target.value);
                     }}
@@ -92,9 +92,9 @@ function Bitly() {
                     />
                   </div>
                 )}
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
@@ -103,7 +103,7 @@ function Bitly() {
                     }}
                   />
                   <label
-                    class="form-check-label"
+                    className="form-check-label"
                     for="flexCheckDefault"
                     style={{ color: "black" }}
                   >
@@ -112,7 +112,7 @@ function Bitly() {
                 </div>
                 <button
                   type="submit"
-                  class="btn btn-dark my-2"
+                  className="btn btn-dark my-2"
                   onClick={handleSubmit}
                 >
                   Shorten
@@ -123,7 +123,7 @@ function Bitly() {
             {data && (
               <div className="card my-4" style={{ backgroundColor: "#90eea8" }}>
                 <div class="card-body d-flex">
-                  <a href={data} target="_blank" style={{ color: "black" }} >
+                  <a href={data.substring(25)} target="_blank" style={{ color: "black" }} >
                     {data}
                   </a>
                   <CopyToClipboard text={data}>
