@@ -11,7 +11,7 @@ import About from "./pages/About";
 function App() {
   return (
     <div>
-      <Router>
+      <Router>  
           <Navbar/>          
           <Header/>
         <LoadingBar height={3} color='#f11946'/>
