@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import { useState } from "react"
+
+import  { useEffect} from "react";
+import axios from "axios";
+const fetchData = () => {
+  axios
+    .get(`https://swapnil123.pythonanywhere.com/save_ip/`)
+};
 function Navbar() {
+  useEffect(() => {
+    fetchData();
+  }, []);
   // const [inputText, setInputText] = useState("");
   // let inputHandler = (e) => {
   //   var lowerCase = "search?q="+e.target.value.toLowerCase();

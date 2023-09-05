@@ -9,7 +9,13 @@ import LoadingBar from 'react-top-loading-bar';
 import About from "./pages/About";
 import Projects from "./components/Projects";
 
+
+
+
+
 function App() {
+
+
   return (
     <div>
       <Router>  
