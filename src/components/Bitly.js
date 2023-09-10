@@ -6,7 +6,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 let background_url = process.env.PUBLIC_URL + "/images/background.jpg";
 var myStyle = {
-  backgroundImage: `url(${background_url})`,
+  backgroundImage: `url(${process.env.PUBLIC_URL + "/images/backgroundd.gif"})`,
   height: "100%",
   minHeight: "100vh",
   backgroundSize: "cover",
@@ -15,6 +15,7 @@ var myStyle = {
   margin: "0px",
   border: " 10x solid black",
   color: "white",
+
 };
 
 function Bitly() {
@@ -60,18 +61,22 @@ function Bitly() {
   return (
     <div style={myStyle}>
       <div>{error && <div>{url.toUpperCase()} DOESNT EXIST</div>}</div>
-      <div className="container d-flex flex-column justify-content-center ">
-        <div className="row justify-content-center">
+      <div style={{  dispaly: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height : "100vh"}}>  
+      <div className="container d-flex flex-column justify-content-center align-item-center h-75">
+        <div className="row justify-content-center border-white">
           <div className="col-md-6">
             <div className="card">
-              <div className="card-header bg-dark text-white">Shorten URL</div>
-              <div className="card-body">
+              <div className="card-header bg-dark text-white border-white">Shorten URL</div>
+              <div className="card-body bg-dark text-white">
                 <div>
                   <input
                     type="text"
                     name="long_url"
                     placeholder="Enter URL to shorten"
-                    className="form-control"
+                    className="form-control bg-dark text-white border-white"
                     onChange={(e) => {
                       setLongUrl(e.target.value);
                     }}
@@ -84,7 +89,7 @@ function Bitly() {
                       type="text"
                       name="short_url"
                       placeholder="Enter short word"
-                      class="form-control"
+                      className ="form-control bg-dark text-white border-white"
                       onChange={(e) => {
                         setShortUrl(e.target.value);
                       }}
@@ -92,9 +97,9 @@ function Bitly() {
                     />
                   </div>
                 )}
-                <div className="form-check">
+                <div className="form-check bg-dark text-white">
                   <input
-                    className="form-check-input"
+                    className="form-check-input bg-dark text-white border-white"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
@@ -103,7 +108,7 @@ function Bitly() {
                     }}
                   />
                   <label
-                    className="form-check-label"
+                    className="form-check-label bg-dark text-white"
                     for="flexCheckDefault"
                     style={{ color: "black" }}
                   >
@@ -132,6 +137,8 @@ function Bitly() {
                 </div>
               </div>
             )}
+            </div>
+
           </div>
         </div>
       </div>

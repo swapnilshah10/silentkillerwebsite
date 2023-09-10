@@ -4,6 +4,7 @@ function Videos(props) {
   let background_url = process.env.PUBLIC_URL + "/images/background.jpg";
   const myStyle = {
     backgroundImage: `url(${background_url})`,
+    // width : "20rem",
   };
 
   const myArray = props.videoTitle.split("#");
