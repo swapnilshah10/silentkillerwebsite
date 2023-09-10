@@ -3,7 +3,7 @@ import React from "react";
 function About() {
   let background_url = process.env.PUBLIC_URL + "/images/background.jpg";
   var myStyle = {
-    backgroundImage: `url(${background_url})`,
+    backgroundImage: `url(${process.env.PUBLIC_URL + "/images/backgroundd.gif"})`,
     backgroundSize: "cover",
     color: "white",
     minHeight: "100vh",
