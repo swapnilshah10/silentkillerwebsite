@@ -1,11 +1,14 @@
 import "./css/loading.css";
+import "./css/logo.css";
+
 import React from "react";
 
 
 function Loading() {
   let background_url = process.env.PUBLIC_URL + "/images/background.jpg";
   var myStyle = {
-    backgroundImage: `url(${background_url})`,
+    // backgroundImage: `url(${background_url})`,
+    backgroundColor: "black",
     display: "flex",
     minHeight: "100vh", 
     height: "100%",
@@ -18,7 +21,8 @@ function Loading() {
   };
   return (
     <div style={myStyle}>
-      <div
+        <img src={process.env.PUBLIC_URL + "/images/loading.gif"} alt="logo" width={"300rem"} />
+      {/* <div
         aria-label="Orange and tan hamster running in a metal wheel"
         role="img"
         className=" wheel-and-hamster"
@@ -39,7 +43,7 @@ function Loading() {
           </div>
         </div>
         <div className="spoke"></div>
-      </div>
+      </div> */}
     </div>
   );
 }

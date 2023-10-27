@@ -15,7 +15,7 @@ function Videogrid(props) {
   useEffect(() => {
     const fetchData = async () => {
       const results = await axios(url);
-      setTimeout(() => setLoading(false), 500);
+      setTimeout(() => setLoading(false), 900);
       setData(results.data.items);
     };
     fetchData();
