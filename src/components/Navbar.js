@@ -1,5 +1,6 @@
 import React from "react";
 import Link from 'next/link'
+// import 'bootstrap';
 // import { useState } from "react"
 
 // import  { useEffect} from "react";
@@ -9,9 +10,9 @@ import Link from 'next/link'
 //     .get(`https://swapnil123.pythonanywhere.com/save_ip/`)
 // };
 function Navbar() {
-//   useEffect(() => {
-//     fetchData();
-//   }, []);
+  //   useEffect(() => {
+  //     fetchData();
+  //   }, []);
   // const [inputText, setInputText] = useState("");
   // let inputHandler = (e) => {
   //   var lowerCase = "search?q="+e.target.value.toLowerCase();
@@ -59,44 +60,59 @@ function Navbar() {
               </li>
 
 
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Social Medias
-                </a>
-                <ul className="dropdown-menu  bg-dark text-white" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item bg-dark text-white " target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ig_silentkiller_op/">Instagram</a></li>
+{/* Social Media Dropdown */}
+<li className="nav-item dropdown">
+  <a className="nav-link dropdown-toggle" href="/" id="socialMediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Social Medias
+  </a>
+  <ul className="dropdown-menu bg-dark text-white" aria-labelledby="socialMediaDropdown">
+    <li>
+      <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ig_silentkiller_op/">Instagram</a>
+    </li>
+    <li>
+      <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@silentkillerop">YouTube</a>
+    </li>
+    <li>
+      <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/swapnilshah102">Twitter</a>
+    </li>
+    <li>
+      <hr className="dropdown-divider" />
+    </li>
+    <li>
+      <a className="dropdown-item bg-dark text-white" href="/">Nothing else here</a>
+    </li>
+  </ul>
+</li>
 
-                  <li >
-                    <a className="dropdown-item  bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@silentkillerop" >YouTube</a>
-                  </li>
-                  <li><a className="dropdown-item  bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/swapnilshah102">Twitter</a></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><a className="dropdown-item  bg-dark text-white" href="/">Nothing else here</a></li>
-                  
-                </ul>
-              </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Coding
-                </a>
-                <ul className="dropdown-menu  bg-dark text-white" aria-labelledby="navbarDropdown">
-                    <li>
-                    <a className="dropdown-item  bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/resume" >Resume</a>
-                    <li><a className="dropdown-item  bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/leetcode">LeetCode</a></li>
-                    <li><a className="dropdown-item  bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/codechef">Codechef</a></li>
-                    <li><a className="dropdown-item  bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/codingninjas">CodingNinjas</a></li>
-                  </li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><a className="dropdown-item  bg-dark text-white" href="/">Nothing else here</a></li>
-                </ul>
-              </li>
+{/* Coding Dropdown */}
+<li className="nav-item dropdown">
+  <a className="nav-link dropdown-toggle" href="/" id="codingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Coding
+  </a>
+  <ul className="dropdown-menu bg-dark text-white" aria-labelledby="codingDropdown">
+    <li>
+      <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/resume">Resume</a>
+    </li>
+    <li>
+      <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/leetcode">LeetCode</a>
+    </li>
+    <li>
+      <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/codechef">Codechef</a>
+    </li>
+    <li>
+      <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/codingninjas">CodingNinjas</a>
+    </li>
+    <li>
+      <hr className="dropdown-divider" />
+    </li>
+    <li>
+      <a className="dropdown-item bg-dark text-white" href="/">Nothing else here</a>
+    </li>
+  </ul>
+</li>
+
             </ul>
-            {/* <form className="d-flex">
-              <input className="form-control me-2  bg-dark text-white " type="search" placeholder="Search" onChange={inputHandler}  aria-label="Search" />
-              <Link className="" to= {inputText} >
-              <button className="btn btn-outline-success" type="submit">Search</button>
-              </Link>
-            </form> */}
+
           </div>
         </div>
       </nav>

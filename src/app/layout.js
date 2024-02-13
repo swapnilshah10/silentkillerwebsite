@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "./globals.css";
 
 import Footer from "@/components/Footer";
@@ -14,6 +15,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      </head>
 
       <body >
         <Navbar />

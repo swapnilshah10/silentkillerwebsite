@@ -1,8 +1,6 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+import Loading from "@/components/Loading";
 export default function Home() {
   return (
-   <>Helllo</>
+   <><Loading/></>
   );
 }
