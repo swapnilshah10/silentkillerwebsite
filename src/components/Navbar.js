@@ -11,9 +11,9 @@ const fetchData = () => {
     .get(`https://swapnil123.pythonanywhere.com/save_ip/`)
 };
 function Navbar() {
-  //   useEffect(() => {
-  //     fetchData();
-  //   }, []);
+    useEffect(() => {
+      fetchData();
+    }, []);
   // const [inputText, setInputText] = useState("");
   // let inputHandler = (e) => {
   //   var lowerCase = "search?q="+e.target.value.toLowerCase();

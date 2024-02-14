@@ -1,6 +1,6 @@
 import Videogrid from "@/components/VideoGrid";
 export default function Home() {
   return (
-   <><Videogrid playlist = "all" /></>
+   <><Videogrid playlist = "chess" /></>
   );
 }

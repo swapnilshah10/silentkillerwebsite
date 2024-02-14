@@ -1,67 +1,23 @@
 // "use client"
-// import React, { useEffect, useState } from "react";
+import React from "react";
 import Videos from "./Videos";
-// import axios from "axios";
 import Loading from "./Loading";
 import "animate.css";
 // let key = "YOUR_API_KEY_HERE"; // Replace with your actual API key
 // let key = "AIzaSyCrB9e21ojlqFjuS4kbhEiAPEcORwcia-4";
 
-async function Videogrid() {
+async function Videogrid(props) {
   let background_url = "/background.jpg";
-  let url = `https://swapnil123.pythonanywhere.com/api/all`;
-  // const [data, setData] = useState([]);
-  // const [loading, setLoading] = useState(true);
+  let url = `https://swapnil123.pythonanywhere.com/api/${props.playlist}`;
   const data = await fetch(url).then((response) => response.json());
-  // console.log(data);
   const loading = false;
-
-
-
-
-
-
-  // useEffect(() => {
-  //   let isMounted = true;
-
-  //   const fetchData = async () => {
-  //     try {
-  //       const results = await axios(url);
-        
-  //       // Check if the component is still mounted before updating state
-  //       if (isMounted) {
-  //         setData(results.data);
-  //         setLoading(false);
-  //       }
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-
-  //   const fetchDataWithTimeout = async () => {
-  //     // Set a timeout for 500ms
-  //     const timeout = setTimeout(() => {
-  //       // If the component is still mounted, call the API again
-  //       if (isMounted) {
-  //         fetchData();
-  //       }
-  //     }, 500);
-
-  //     // Call the API
-  //     await fetchDataWithTimeout();
-
-  //     // Clear the timeout to prevent the second API call if the response comes within 500ms
-  //     clearTimeout(timeout);
-  //   };
-
-    // Initial API call
-  //   fetchData();
-
-  //   // Cleanup function to clear the timeout if the component is unmounted
-  //   return () => {
-  //     isMounted = false;
-  //   };
-  // }, [url]);
+  if (!data) {
+    return (
+      <div className="d-flex justify-content-center align-items-center">
+        <h1>No Videos Found</h1>
+      </div>
+    );
+  }
 
   var myStyle = {
     // display: "inline-block" ,
@@ -83,9 +39,6 @@ async function Videogrid() {
   };
 
   let outerClass = "d-flex justify-content-center align-items-center";
-
-
-
 
   return (
     <div className={outerClass} style={outer} key="outerDivKey">
