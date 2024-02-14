@@ -1,14 +1,15 @@
+"use client"
 import React from "react";
 import Link from 'next/link'
 // import 'bootstrap';
 // import { useState } from "react"
 
-// import  { useEffect} from "react";
-// import axios from "axios";
-// const fetchData = () => {
-//   axios
-//     .get(`https://swapnil123.pythonanywhere.com/save_ip/`)
-// };
+import  { useEffect} from "react";
+import axios from "axios";
+const fetchData = () => {
+  axios
+    .get(`https://swapnil123.pythonanywhere.com/save_ip/`)
+};
 function Navbar() {
   //   useEffect(() => {
   //     fetchData();
