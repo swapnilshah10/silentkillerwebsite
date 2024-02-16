@@ -7,7 +7,7 @@ import styles from './page.module.css';
 
 // let background_url = http://localhost:3000/ + "/background.jpg";
 var myStyle = {
-  backgroundImage: `url(${"http://localhost:3000//backgroundd.gif"})`,
+  backgroundImage: `url(${"/backgroundd.gif"})`,
   height: "100%",
   minHeight: "100vh",
   backgroundSize: "cover",
@@ -57,7 +57,7 @@ function Bitly({ params }) {
       .post(`https://swapnil123.pythonanywhere.com/api/payal/`, data)
       .then((response) => {
         console.log(response);
-        setData("https:silentkillerop.live/" + response.data.url);
+        setData("https:silentkillerop.tech/" + response.data.url);
       });
   };
   return (

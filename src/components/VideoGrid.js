@@ -1,14 +1,12 @@
 // "use client"
 import React from "react";
 import Videos from "./Videos";
-import Loading from "./Loading";
 import "animate.css";
-// let key = "YOUR_API_KEY_HERE"; // Replace with your actual API key
-// let key = "AIzaSyCrB9e21ojlqFjuS4kbhEiAPEcORwcia-4";
+
 
 async function Videogrid(props) {
-  let background_url = "/background.jpg";
-  let url = `https://swapnil123.pythonanywhere.com/api/${props.playlist}`;
+  const background_url = "/background.jpg";
+  const url = `https://swapnil123.pythonanywhere.com/api/${props.playlist}`;
   const data = await fetch(url).then((response) => response.json());
   const loading = false;
   if (!data) {
@@ -20,7 +18,6 @@ async function Videogrid(props) {
   }
 
   var myStyle = {
-    // display: "inline-block" ,
     backgroundImage: `url(${background_url})`,
     height: "100%",
     backgroundSize: "cover",
