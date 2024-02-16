@@ -7,7 +7,15 @@ import "animate.css";
 async function Videogrid(props) {
   const background_url = "/background.jpg";
   const url = `https://swapnil123.pythonanywhere.com/api/${props.playlist}`;
-  const data = await fetch(url).then((response) => response.json());
+
+  let data = {};
+  try{
+    data =   await fetch(url).then((response) => response.json());
+  }
+  catch(e){
+    console.log(e);
+  }
+    
   const loading = false;
   if (!data) {
     return (

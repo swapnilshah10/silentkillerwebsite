@@ -24,7 +24,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark h-25">
         <div className="container-fluid">
           <Link className="navbar-brand " href="/">
-            <img src={'http://localhost:3000/profile.png'}
+            <img src={'/profile.png'}
               className="d-inline-block align-top" alt="" width="40" height="40" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
