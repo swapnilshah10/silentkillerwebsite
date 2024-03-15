@@ -61,6 +61,7 @@ function Navbar() {
               </li>
 
 
+
 {/* Social Media Dropdown */}
 <li className="nav-item dropdown">
   <a className="nav-link dropdown-toggle" href="/" id="socialMediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -103,6 +104,9 @@ function Navbar() {
     <li>
       <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/codingninjas">CodingNinjas</a>
     </li>
+    <li className="">
+    <a className="dropdown-item bg-dark text-white" href="/myip">Your ip</a>
+              </li>
     <li>
       <hr className="dropdown-divider" />
     </li>
