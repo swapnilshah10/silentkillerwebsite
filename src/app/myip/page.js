@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 async function Videogrid() {
   const background_url = "/background.jpg";
   const url = `https://swapnil123.pythonanywhere.com/your_ip/`;
