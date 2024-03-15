@@ -1,15 +1,25 @@
-"use client"
-async function Videogrid() {
+"use client";
+import React, { useState, useEffect } from "react";
+
+async function fetchData(url) {
+  const response = await fetch(url);
+  return response.json();
+}
+
+function Videogrid() {
   const background_url = "/background.jpg";
   const url = `https://swapnil123.pythonanywhere.com/your_ip/`;
 
-  let data = {};
-  try{
-    data =   await fetch(url).then((response) => response.json());
-  }
-  catch(e){
-    console.log(e);
-  }
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    async function getData() {
+      const res = await fetchData(url);
+      setData(res);
+      console.log(res);
+    }
+    getData();
+  }, []);
     
   const loading = false;
   if (!data || data["status"] !== "success") {
@@ -20,43 +30,40 @@ async function Videogrid() {
     );
   }
 
-  var myStyle = {
+  const myStyle = {
     backgroundImage: `url(${background_url})`,
-    height: "600px ",
+    height: "600px",
     backgroundSize: "cover",
     backgroundRepeat: "repeat-y",
     padding: "10px",
     margin: "0px",
-    border: " 10x solid black",
-    width : "60%",
-    color : "white",
-    borderRadius : "20px",
-    justifyContent : "center",
-    alignItems : "center",  
-    display : "flex",
+    border: "10px solid black",
+    width: "60%",
+    color: "white",
+    borderRadius: "20px",
+    justifyContent: "center",
+    alignItems: "center",  
+    display: "flex",
   };
 
-  let outer = {
+  const outer = {
     backgroundImage: `url(${"/backgroundd.gif"})`,
     backgroundSize: "cover",
     backgroundRepeat: "repeat-y",
     backgroundAttachment: "fixed",
-    height: "1000 px ",
+    height: "1000px",
     padding: "20px",
   };
 
-  let outerClass = "d-flex justify-content-center align-items-center ";
+  const outerClass = "d-flex justify-content-center align-items-center";
 
   return (
     <div className={outerClass} style={outer} key="outerDivKey">
-
-        <div className=" justify-content-center align-items-center p-3" style={myStyle} key="innerDivKey">
-
-                <h1> IP  : {data.ip} <br></br> Latitude : {data.lat} <br></br>Longitude  : {data.lat} <br></br>ISP  : {data.isp}<br></br> Region  : {data.regionName} <br></br> City : {data.city}</h1>    
-            </div>
+      <div className="justify-content-center align-items-center p-3" style={myStyle} key="innerDivKey">
+        <h1> IP: {data.ip} <br /> Latitude: {data.lat} <br /> Longitude: {data.lat} <br /> ISP: {data.isp} <br /> Region: {data.regionName} <br /> City: {data.city}</h1>    
+      </div>
     </div>
   );
-  
 }
 
 export default Videogrid;
