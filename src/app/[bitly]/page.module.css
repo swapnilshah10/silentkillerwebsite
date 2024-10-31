@@ -2,3 +2,24 @@
     color: white;
   }
   
+.backgroundImage {
+    background-size: cover;
+    background-repeat: repeat-y;
+    height: 100vh;
+    padding: 10px;
+    color: white;
+    border: 10px solid black;
+  }
+  
+.centerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+  
+.cardContainer {
+    width: 100%;
+    max-width: 500px;
+  }
+  

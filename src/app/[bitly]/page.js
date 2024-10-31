@@ -6,28 +6,17 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styles from './page.module.css';
 
 // let background_url = http://localhost:3000/ + "/background.jpg";
-var myStyle = {
-  backgroundImage: `url(${"/backgroundd.gif"})`,
-  height: "100%",
-  minHeight: "100vh",
-  backgroundSize: "cover",
-  backgroundRepeat: "repeat-y",
-  padding: "10px",
-  margin: "0px",
-  border: " 10px solid black",
-  color: "white",
-
-};
 
 function Bitly({ params }) {
   // console.log(background_url);
   // const router = useRouter()
   let url = params.bitly;
+
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);
-  const [shortUrl, setShortUrl] = React.useState(null);
+  const [shortUrl, setShortUrl] = React.useState(url === "shorten" ? "" : url);
   const [longUrl, setLongUrl] = React.useState(null);
-  const [ishort, setIshort] = React.useState(false);
+  const [ishort, setIshort] = React.useState(url !== "shorten");
 
   const fetchData = async () => {
     axios
@@ -46,32 +35,21 @@ function Bitly({ params }) {
   }, []);
 
   const handleSubmit = () => {
-    let data = {
-      long_url: longUrl,
-    };
-    if (ishort) {
-      data.short_url = shortUrl;
-    }
+    const req = { long_url: longUrl };
+    if (ishort) req.short_url = shortUrl;
 
     axios
-      .post(`https://swapnil123.pythonanywhere.com/api/payal/`, data)
+      .post(`https://swapnil123.pythonanywhere.com/api/payal/`, req)
       .then((response) => {
         console.log(response);
         setData("https:silentkillerop.tech/" + response.data.url);
       });
   };
   return (
-    <div style={myStyle}>
-      <div>{error && <div>{url.toUpperCase()} DOESNT EXIST</div>}</div>
-      <div style={{
-        dispaly: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh"
-      }}>
-        <div className="container d-flex flex-column justify-content-center align-item-center h-75">
-          <div className="row justify-content-center border-white">
-            <div className="col-md-6">
+    <div className={styles.backgroundImage} style={{ backgroundImage: `url('/backgroundd.gif')` }}>
+      {/* <div>{error && <div>{url.toUpperCase()} DOESNT EXIST</div>}</div> */}
+      <div className={styles.centerContainer}>
+        <div className={`container ${styles.cardContainer}`}>
               <div className="card">
                 <div className="card-header bg-dark text-white border-white">Shorten URL</div>
                 <div className="card-body bg-dark text-white">
@@ -93,7 +71,8 @@ function Bitly({ params }) {
                       <input
                         type="text"
                         name="short_url"
-                        placeholder="Enter short word"
+                        value={shortUrl}
+                        placeholder="Enter your short word"
                         className="form-control bg-dark text-white border-white"
                         style={styles.input}
                         onChange={(e) => {
@@ -108,6 +87,7 @@ function Bitly({ params }) {
                       className="form-check-input bg-dark text-white border-white"
                       type="checkbox"
                       value=""
+                      defaultChecked={ishort}
                       id="flexCheckDefault"
                       onClick={() => {
                         setIshort(!ishort);
@@ -146,8 +126,6 @@ function Bitly({ params }) {
             </div>
 
           </div>
-        </div>
-      </div>
     </div>
   );
 }
