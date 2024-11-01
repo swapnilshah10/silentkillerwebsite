@@ -1,3 +1,4 @@
+import Image from 'next/image';
 function Videos(props) {
   let background_url = "/background.jpg";
   const myStyle = {
@@ -18,7 +19,15 @@ function Videos(props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={props.thumbnail} className="card-img-top" alt="Top"  />
+             <Image
+              src={props.thumbnail}
+              alt="Video thumbnail"
+              layout="responsive"
+              width={16} // Set appropriate width and height to maintain aspect ratio
+              height={9}
+              className="card-img-top"
+              priority={false} // Set to true for images that need to load immediately
+            />
           </a>
           <div className="card-body">
             <h5 className="card-title text-white">{myArray[0]}</h5>

@@ -4,20 +4,13 @@ import Videos from "./Videos";
 import "animate.css";
 
 
-async function Videogrid(props) {
+const Videogrid = async(props) =>{
   const background_url = "/background.jpg";
-  const url = `https://swapnil123.pythonanywhere.com/api/${props.playlist}`;
-
-  let data = {};
-  try{
-    data =   await fetch(url).then((response) => response.json());
-  }
-  catch(e){
-    console.log(e);
-  }
-    
+  const url = `https://swapnil123.pythonanywhere.com/api/${props.playlist}`;  
+  const response = await fetch(url); // Use props.url to fetch data
+  const data = await response.json();
   const loading = false;
-  if (!data) {
+  if (data == null) {
     return (
       <div className="d-flex justify-content-center align-items-center">
         <h1>No Videos Found</h1>
@@ -33,7 +26,7 @@ async function Videogrid(props) {
     padding: "10px",
     margin: "0px",
     border: " 10x solid black",
-    width : "60%"
+    width: "60%"
   };
 
   let outer = {
@@ -83,7 +76,7 @@ async function Videogrid(props) {
       </div>
     </div>
   );
-  
+
 }
 
 export default Videogrid;
