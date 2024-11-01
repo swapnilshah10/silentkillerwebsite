@@ -35,7 +35,7 @@ function Videos(props) {
             <p className="card-text"></p>
           </div>
           <div className="card-footer">
-            <small className="text-muted">Uploaded at {date}</small>
+            <small className=""  style={{ color: '#FFFFFF8C' }}>Uploaded at {date}</small>
           </div>
         </div>
       </div>
