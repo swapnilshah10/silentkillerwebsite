@@ -18,9 +18,10 @@ function About() {
 
   var myStyle2 = {
     maxWidth: "700px"
+    
   }
   return (
-    <div style={myStyle}>
+    <div style={myStyle} className="playwrite-gb-s-example">
       <h1  style = {{padding: '10px'}}>About Me</h1>
       <div style={myStyle2}>
       <p >

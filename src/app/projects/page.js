@@ -61,7 +61,7 @@ const Projects = () => {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${background_url})`, color: "white" }}>
+    <div style={{ backgroundImage: `url(${background_url})`, color: "white" }} className="playwrite-gb-s-example">
       <h2>Projects</h2>
       {projects.map((project, index) => (
         <div key={index} style={projectsStyle}>

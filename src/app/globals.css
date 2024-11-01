@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
 .form-control::-webkit-input-placeholder {
     color: white;
   }
@@ -14,3 +16,9 @@
     color: white;
   }
   
+  .playwrite-gb-s-example {
+    font-family: "Playwrite GB S", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300; /* Change this value as needed */
+    font-style: normal;
+  }
