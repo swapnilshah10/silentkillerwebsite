@@ -22,10 +22,11 @@ function Videos(props) {
              <Image
               src={props.thumbnail}
               alt="Video thumbnail"
-              layout="responsive"
-              width={16} // Set appropriate width and height to maintain aspect ratio
-              height={9}
-              className="card-img-top"
+              // layout="responsive"
+              // className="rounded"
+              width={160} // Set appropriate width and height to maintain aspect ratio
+              height={200}
+              className="card-img-top responsive"
               priority={false} // Set to true for images that need to load immediately
             />
           </a>
