@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styles from './page.module.css';
+import Dialog from "../../components/Dialog"
 
 // let background_url = http://localhost:3000/ + "/background.jpg";
 
@@ -15,38 +16,83 @@ function Bitly({ params }) {
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);
   const [shortUrl, setShortUrl] = React.useState(url === "shorten" ? "" : url);
+  const [name, setName] = React.useState("");
   const [longUrl, setLongUrl] = React.useState(null);
-  const [ishort, setIshort] = React.useState(url !== "shorten");
+  const [ishortPage, setIshortpage] = React.useState(url === "shorten");
+  const [ishort, setIshort] = React.useState(false);
+  const [existingUrlData, setExistingUrlData] = React.useState(null);
 
   const fetchData = async () => {
-    axios
-      .get(`https://swapnil123.pythonanywhere.com/api/${url}/`)
-      .then((response) => {
-        window.location = response.data.url;
-      })
-      .catch((error) => {
-        setError(error);
-        console.log(error);
-      });
+    if (ishortPage) return; // If `ishortPage` is true, exit the function without making a call.
+  
+    try {
+      const response = await axios.get(`https://swapnil123.pythonanywhere.com/api/${url}/`);
+      window.location = response.data.url;
+    } catch (error) {
+      setError(error);
+      console.error(error);
+    }
   };
+
+
+  const handleClose = () => setExistingUrlData(null);
+  
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const handleSubmit = () => {
-    const req = { long_url: longUrl };
-    if (ishort) req.short_url = shortUrl;
 
+
+  async function checkIfUrlExists(shortUrl) {
+    try {
+      const response = await fetch(`https://swapnil123.pythonanywhere.com/api/${shortUrl}/`);
+      if (response.ok) {
+        const data = await response.json();
+        return { exists: true, data } ;
+      } else if (response.status === 404) {
+        return { exists: false } ;
+      }
+    } catch (error) {
+      console.error("Error fetching URL data:", error);
+    }
+  }
+
+  const saveData = async () =>{
+    let req = { long_url: longUrl };
+    if (ishort) req.short_url = shortUrl;
+    if (name!="") req.created_by = name;
     axios
       .post(`https://swapnil123.pythonanywhere.com/api/payal/`, req)
       .then((response) => {
-        console.log(response);
         setData("https:silentkillerop.tech/" + response.data.url);
+        setExistingUrlData(null)
+      }).catch((error) => {
+        // Handle the error here
+        console.error("Error occurred:", error);
+        setExistingUrlData(null)
       });
+  }
+  
+
+  const handleSubmit = async () => {
+    if(ishort){
+     let check = await checkIfUrlExists(shortUrl);
+     if(check.exists){
+      console.log(check)
+      setExistingUrlData(check.data);
+      return;
+     }
+    }
+    await saveData();    
   };
+
+
   return (
     <div className={styles.backgroundImage} style={{ backgroundImage: `url('/backgroundd.gif')` }}>
+    {existingUrlData && (
+          <Dialog existingUrlData={existingUrlData} handleClose={handleClose} saveData = {saveData}/>
+          )}
       {/* <div>{error && <div>{url.toUpperCase()} DOESNT EXIST</div>}</div> */}
       <div className={styles.centerContainer}>
         <div className={`container ${styles.cardContainer}`}>
@@ -55,7 +101,7 @@ function Bitly({ params }) {
                 <div className="card-body bg-dark text-white">
                   <div>
                     <input
-                      placeholder="Enter URL to shorten"
+                      placeholder="Enter URL to shorten "
                       type="text"
                       name="long_url"
                       className="form-control bg-dark text-white border-white"
@@ -73,10 +119,22 @@ function Bitly({ params }) {
                         name="short_url"
                         value={shortUrl}
                         placeholder="Enter your short word"
-                        className="form-control bg-dark text-white border-white"
+                        className="form-control bg-dark text-white border-white my-2"
                         style={styles.input}
                         onChange={(e) => {
                           setShortUrl(e.target.value);
+                        }}
+                        required
+                      />
+                      <input
+                        type="text"
+                        name="name"
+                        value={name}
+                        placeholder="Enter your name"
+                        className="form-control bg-dark text-white border-white my-2"
+                        style={styles.input}
+                        onChange={(e) => {
+                          setName(e.target.value);
                         }}
                         required
                       />
@@ -124,6 +182,7 @@ function Bitly({ params }) {
                 </div>
               )}
             </div>
+            
 
           </div>
     </div>
