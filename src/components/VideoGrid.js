@@ -2,12 +2,15 @@
 import React from "react";
 import Videos from "./Videos";
 import "animate.css";
+import BackToTopButton from "./BacktoTop";
+
+export const revalidate = 3600
 
 
 const Videogrid = async(props) =>{
   const background_url = "/background.jpg";
   const url = `https://swapnil123.pythonanywhere.com/api/${props.playlist}`;  
-  const response = await fetch(url); // Use props.url to fetch data
+  const response = await fetch(url, { cache: "no-store" }); // Use props.url to fetch data
   const data = await response.json();
   const loading = false;
   if (data == null) {
@@ -40,6 +43,7 @@ const Videogrid = async(props) =>{
 
   return (
     <div className={outerClass} style={outer} key="outerDivKey">
+            <BackToTopButton />
       <div className="row" style={myStyle} key="innerDivKey">
         {loading ? (
           <Loading />
@@ -74,6 +78,7 @@ const Videogrid = async(props) =>{
           })
         )}
       </div>
+
     </div>
   );
 

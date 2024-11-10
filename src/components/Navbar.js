@@ -21,7 +21,7 @@ function Navbar() {
   // };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark h-25 position-sticky top-0" style={{ zIndex: 1050 }}>
+      <nav className="navbar navbar-expand-lg  navbar-dark bg-dark h-25 position-sticky p-2 top-0" style={{ zIndex: 1050 }}>
         <div className="container-fluid">
           <Link className="navbar-brand " href="/">
             <img src={'/profile.png'}
