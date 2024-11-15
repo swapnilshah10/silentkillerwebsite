@@ -5,7 +5,7 @@ const Projects = () => {
     {
       title: 'Personal Website',
       description: 'Constructed a web application using React.js and Django Rest Framework (DRF) to exhibit my latest YouTube videos in a well-structured manner.',
-      technologies: ['React.js', 'Django Rest Framework (DRF)'],
+      technologies: ['Next.js', 'Django Rest Framework (DRF)'],
     },
     {
       title: 'Anonymous Poll',
