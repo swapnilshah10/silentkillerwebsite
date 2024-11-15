@@ -6,8 +6,11 @@ import { isMobile } from 'react-device-detect';
 function Footer() {
   let background_url =  "/background.jpg";
   let style = {
+    position: "relative",
     backgroundImage: `url(${background_url})`,
     color: "white",
+    zIndex: 10,
+    marginTop: "auto",  
   };
 
   let style2 = {};
@@ -112,7 +115,7 @@ function Footer() {
           style={{ backgroundColor: (0, 0, 0, 0.05) }}
         >
           © 2022 Copyright: {"\t"}
-          <a className="text-reset fw-bold" href="https://silentkillerop.live/">
+          <a className="text-reset fw-bold" href="https://silentkillerop.tech/">
             SilentkillerOP.tech
           </a>
         </div>

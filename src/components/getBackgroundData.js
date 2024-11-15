@@ -3,7 +3,7 @@
 export default async function handler(res) {
     try {
       // URL of your Django API (adjust as necessary)
-      const djangoApiUrl = 'http://127.0.0.1:8000/feature-status/background/';
+      const djangoApiUrl = 'https://swapnil123.pythonanywhere.com/feature-status/background/';
       
       // Fetch the data from the Django API
       const response = await fetch(djangoApiUrl ,  { next: { revalidate: 3600 } });
