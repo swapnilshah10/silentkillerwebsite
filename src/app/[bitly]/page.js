@@ -1,11 +1,11 @@
 "use client"
 import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
 import axios from "axios";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styles from './page.module.css';
 import Dialog from "../../components/Dialog"
 import getBackgroundData from "../../components/getBackgroundData"
+import Particles from "../../components/Particles"
 
 // let background_url = http://localhost:3000/ + "/background.jpg";
 
@@ -36,13 +36,13 @@ function Bitly({ params }) {
   };
 
   const [background_url , setBackground]= useState("/background.jpg");
+  const [is_enabled , setEnable] = useState(false)
 
-  let background = {
-    is_enabled : false
-  };
-
+  
   const fetchBackground = async () => {
-    background =  await getBackgroundData(background);
+    let background = {}
+    background = await getBackgroundData(background)
+    setEnable(background.is_enabled);
     if(background.is_enabled){
       setBackground( "/backgroundd.gif");
     }
@@ -104,9 +104,16 @@ function Bitly({ params }) {
     await saveData();    
   };
 
+  const Particless = () => {
+    console.log(is_enabled)
+    return is_enabled ? <></> : <Particles />;
+    // return <></>
+  };
+  
 
   return (
     <div className={styles.backgroundImage} style={{ backgroundImage: `url('./${background_url}')` }}>
+      <Particless/>
     {existingUrlData && (
           <Dialog existingUrlData={existingUrlData} handleClose={handleClose} saveData = {saveData}/>
           )}
