@@ -1,10 +1,11 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 import axios from "axios";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styles from './page.module.css';
 import Dialog from "../../components/Dialog"
+import getBackgroundData from "../../components/getBackgroundData"
 
 // let background_url = http://localhost:3000/ + "/background.jpg";
 
@@ -34,12 +35,28 @@ function Bitly({ params }) {
     }
   };
 
+  const [background_url , setBackground]= useState("/background.jpg");
+
+  let background = {
+    is_enabled : false
+  };
+
+  const fetchBackground = async () => {
+    background =  await getBackgroundData(background);
+    if(background.is_enabled){
+      setBackground( "/backgroundd.gif");
+    }
+    else{
+       setBackground("/background.jpg"); 
+    }
+  }
 
   const handleClose = () => setExistingUrlData(null);
   
 
   useEffect(() => {
     fetchData();
+    fetchBackground();
   }, []);
 
 
@@ -89,7 +106,7 @@ function Bitly({ params }) {
 
 
   return (
-    <div className={styles.backgroundImage} style={{ backgroundImage: `url('/backgroundd.gif')` }}>
+    <div className={styles.backgroundImage} style={{ backgroundImage: `url('./${background_url}')` }}>
     {existingUrlData && (
           <Dialog existingUrlData={existingUrlData} handleClose={handleClose} saveData = {saveData}/>
           )}

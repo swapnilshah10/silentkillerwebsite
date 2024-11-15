@@ -24,10 +24,12 @@ function Videos(props) {
               alt="Video thumbnail"
               // layout="responsive"
               // className="rounded"
-              width={160} // Set appropriate width and height to maintain aspect ratio
+              width={200} // Set appropriate width and height to maintain aspect ratio
               height={200}
               className="card-img-top responsive"
               priority={false} // Set to true for images that need to load immediately
+              loading="lazy"
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
           </a>
           <div className="card-body">

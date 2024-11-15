@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import getBackgroundData from "../../components/getBackgroundData";
 
 async function fetchData(url) {
   const response = await fetch(url);
@@ -7,7 +8,22 @@ async function fetchData(url) {
 }
 
 function Videogrid() {
-  const background_url = "/background.jpg";
+
+  const [background_url , setBackground]= useState("/background.jpg");
+
+  let background = {
+    is_enabled : false
+  };
+
+  const fetchBackground = async () => {
+    background =  await getBackgroundData(background);
+    if(background.is_enabled){
+      setBackground( "/backgroundd.gif");
+    }
+    else{
+       setBackground("/background.jpg"); 
+    }
+  }
   const url = `https://swapnil123.pythonanywhere.com/your_ip/`;
 
   const [data, setData] = useState({});
@@ -16,7 +32,7 @@ function Videogrid() {
     async function getData() {
       const res = await fetchData(url);
       setData(res);
-      console.log(res);
+      fetchBackground();
     }
     getData();
   }, []);
@@ -31,14 +47,14 @@ function Videogrid() {
   }
 
   const myStyle = {
-    backgroundImage: `url(${background_url})`,
+    backgroundColor:"black",
     height: "600px",
     backgroundSize: "cover",
     backgroundRepeat: "repeat-y",
-    padding: "10px",
+    // padding: "10px",
     margin: "0px",
     border: "10px solid black",
-    width: "60%",
+    width: "100%",
     color: "white",
     borderRadius: "20px",
     justifyContent: "center",
@@ -47,12 +63,11 @@ function Videogrid() {
   };
 
   const outer = {
-    backgroundImage: `url(${"/backgroundd.gif"})`,
+    backgroundImage: `url(${background_url})`,
     backgroundSize: "cover",
     backgroundRepeat: "repeat-y",
     backgroundAttachment: "fixed",
-    height: "1000px",
-    padding: "20px",
+    height: "85vh"
   };
 
   const outerClass = "d-flex justify-content-center align-items-center";

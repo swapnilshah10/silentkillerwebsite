@@ -3,6 +3,7 @@ import React from "react";
 import Videos from "./Videos";
 import "animate.css";
 import BackToTopButton from "./BacktoTop";
+import BackgroundWrapper from "./BackGround";
 
 export const revalidate = 3600
 
@@ -26,25 +27,18 @@ const Videogrid = async(props) =>{
     height: "100%",
     backgroundSize: "cover",
     backgroundRepeat: "repeat-y",
-    padding: "10px",
+    padding:  "10px",
     margin: "0px",
     border: " 10x solid black",
-    width: "60%"
+    // width: "60%"
   };
 
-  let outer = {
-    backgroundImage: `url(${"/backgroundd.gif"})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "repeat-y",
-    backgroundAttachment: "fixed",
-  };
 
-  let outerClass = "d-flex justify-content-center align-items-center";
 
   return (
-    <div className={outerClass} style={outer} key="outerDivKey">
+    <BackgroundWrapper>
             <BackToTopButton />
-      <div className="row" style={myStyle} key="innerDivKey">
+      <div className="row col-10 col-md-10 col-lg-6 m-3" style={myStyle} key="innerDivKey">
         {loading ? (
           <Loading />
         ) : (
@@ -79,7 +73,7 @@ const Videogrid = async(props) =>{
         )}
       </div>
 
-    </div>
+    </BackgroundWrapper>
   );
 
 }

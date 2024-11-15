@@ -92,8 +92,8 @@ function Footer() {
                   </a>
                 </li>
               </div>
-              <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
+              <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-light">
+                <h6 className="text-uppercase fw-bold mb-4">Contact Me</h6>
                 <p>
                   <i className="fas fa-envelope me-3"></i>
                   <a
@@ -113,7 +113,7 @@ function Footer() {
         >
           © 2022 Copyright: {"\t"}
           <a className="text-reset fw-bold" href="https://silentkillerop.live/">
-            SilentkillerOP.live
+            SilentkillerOP.tech
           </a>
         </div>
       </footer>
