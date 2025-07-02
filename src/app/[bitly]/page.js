@@ -6,6 +6,8 @@ import styles from './page.module.css';
 import Dialog from "../../components/Dialog"
 import getBackgroundData from "../../components/getBackgroundData"
 import Particles from "../../components/Particles"
+import  { FRONT_END_BASE_URL }  from "../../components/Constants.js";
+import { QRCodeCanvas } from "qrcode.react";
 
 // let background_url = http://localhost:3000/ + "/background.jpg";
 
@@ -82,7 +84,7 @@ function Bitly({ params }) {
     axios
       .post(`https://swapnil123.pythonanywhere.com/api/payal/`, req)
       .then((response) => {
-        setData("https:silentkillerop.tech/" + response.data.url);
+        setData(FRONT_END_BASE_URL + response.data.url);
         setExistingUrlData(null)
       }).catch((error) => {
         // Handle the error here
@@ -105,7 +107,6 @@ function Bitly({ params }) {
   };
 
   const Particless = () => {
-    console.log(is_enabled)
     return is_enabled ? <></> : <Particles />;
     // return <></>
   };
@@ -178,31 +179,59 @@ function Bitly({ params }) {
                     <label
                       className="form-check-label bg-dark text-white"
                       // for="flexCheckDefault"
-                      style={{ color: "black" }}
-                    >
-                      Create custom URL
-                    </label>
-                  </div>
-                  <button
-                    type="submit"
-                    className="btn btn-dark my-2 border-white"
-                    onClick={handleSubmit}
-                  >
-                    Shorten
-                  </button>
-                </div>
-              </div>
+                        style={{ color: "black" }}
+                      >
+                        Create custom URL
+                      </label>
+                      </div>
+                      <button
+                      type="submit"
+                      className="btn btn-dark my-2 border-white"
+                      onClick={handleSubmit}
+                      >
+                      Shorten
+                      </button>
+                    </div>
+                    </div>
 
-              {data && (
-                <div className="card my-4" style={{ backgroundColor: "#90eea8" }}>
-                  <div className="card-body d-flex">
-                    <a href={data.substring(25)} target="_blank" style={{ color: "black" }} >
-                      {data}
-                    </a>
-                    <CopyToClipboard text={data}>
-                      <button className=" mx-4 btn btn-outline-dark btn-sm position-relative top-0 start-0" onClick={{}}>Copy </button>
-                    </CopyToClipboard>
-                  </div>
+                    {data && (
+                    <div className="card my-2" style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}>
+                      <div className="card-body item=center text-center my-1" style={{ backgroundColor: "rgba(255, 255, 255, 0.4)" }}>
+                      <a href={data.substring(25)} target="_blank" style={{ color: "black" }} >
+                        {data}
+                      </a>
+                      
+                     
+                      <CopyToClipboard text={data}>
+                        <button className=" mx-4 btn btn-outline-dark btn-sm" onClick={{}}>Copy </button>
+                      </CopyToClipboard>
+
+                    </div>
+
+               
+                      <div className="card-body item=center text-center my-1" style={{ backgroundColor: "rgba(255, 255, 255, 0.4)" }}>
+                        <div className="my-1" id="qr-gen">
+                        <QRCodeCanvas value={data} size={240} includeMargin={true} />
+                      </div>
+                      <button
+                        className="btn btn-outline-dark btn-sm"
+                        onClick={() => {
+                        const qrDiv = document.getElementById('qr-gen');
+                        const canvas = qrDiv.querySelector('canvas');
+                        if (canvas) {
+                          const url = canvas.toDataURL("image/png");
+                          const a = document.createElement('a');
+                          a.href = url;
+                          a.download = "short-url-qr.png";
+                          a.click();
+                        }
+                      }}
+                    >
+                      Download QR
+                    </button>
+                    </div>
+
+
                 </div>
               )}
             </div>
