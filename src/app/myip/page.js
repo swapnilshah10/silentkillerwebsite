@@ -24,7 +24,7 @@ function Videogrid() {
        setBackground("/background.jpg"); 
     }
   }
-  const url = `https://swapnil123.pythonanywhere.com/your_ip/`;
+  const url = `https://api.silentkillerop.me/your_ip/`;
 
   const [data, setData] = useState({});
 

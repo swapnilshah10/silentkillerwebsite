@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import axios from "axios";
 const fetchData = () => {
   axios
-    .get(`https://swapnil123.pythonanywhere.com/save_ip/`)
+    .get(`https://api.silentkillerop.me/save_ip/`)
 };
 function Navbar() {
   useEffect(() => {

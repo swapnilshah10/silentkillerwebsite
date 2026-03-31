@@ -10,7 +10,7 @@ export const revalidate = 3600
 
 const Videogrid = async(props) =>{
   const background_url = "/background.jpg";
-  const url = `https://swapnil123.pythonanywhere.com/api/${props.playlist}`;  
+  const url = `https://api.silentkillerop.me/api/${props.playlist}`;  
   const response = await fetch(url, { cache: "no-store" }); // Use props.url to fetch data
   const data = await response.json();
   const loading = false;

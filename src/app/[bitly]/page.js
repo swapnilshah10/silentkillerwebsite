@@ -29,7 +29,7 @@ function Bitly({ params }) {
     if (ishortPage) return; // If `ishortPage` is true, exit the function without making a call.
   
     try {
-      const response = await axios.get(`https://swapnil123.pythonanywhere.com/api/${url}/`);
+      const response = await axios.get(`https://api.silentkillerop.me/api/${url}/`);
       window.location = response.data.url;
     } catch (error) {
       setError(error);
@@ -65,7 +65,7 @@ function Bitly({ params }) {
 
   async function checkIfUrlExists(shortUrl) {
     try {
-      const response = await fetch(`https://swapnil123.pythonanywhere.com/api/${shortUrl}/`);
+      const response = await fetch(`https://api.silentkillerop.me/api/${shortUrl}/`);
       if (response.ok) {
         const data = await response.json();
         return { exists: true, data } ;
@@ -82,7 +82,7 @@ function Bitly({ params }) {
     if (ishort) req.short_url = shortUrl;
     if (name!="") req.created_by = name;
     axios
-      .post(`https://swapnil123.pythonanywhere.com/api/payal/`, req)
+      .post(`https://api.silentkillerop.me/api/payal/`, req)
       .then((response) => {
         setData(FRONT_END_BASE_URL + response.data.url);
         setExistingUrlData(null)
