@@ -12,9 +12,8 @@ import { QRCodeCanvas } from "qrcode.react";
 // let background_url = http://localhost:3000/ + "/background.jpg";
 
 function Bitly({ params }) {
-  // console.log(background_url);
-  // const router = useRouter()
-  let url = params.bitly;
+  const unwrappedParams = React.use(params);
+  let url = unwrappedParams.bitly;
 
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);
