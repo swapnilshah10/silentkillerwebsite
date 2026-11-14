@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7330626906993460" crossOrigin="anonymous"></script>
       </head>
 
       <body >
