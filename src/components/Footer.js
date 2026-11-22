@@ -1,5 +1,4 @@
 import React from "react";
-import { isMobile } from 'react-device-detect';
  
 
 
@@ -13,24 +12,8 @@ function Footer() {
     marginTop: "auto",  
   };
 
-  let style2 = {};
-  let detecct_phone = () => {
-    if (isMobile) {
-      style2 = {
-        width: "5%",
-        whiteSpace: "nowrap",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "start",
-        alignItems: "start",
-        paddingRight: "125px",
-        color: "white",
-        
-      };
-    }
-  };
+  const style2 = {};
 
-  detecct_phone();
   return (
     <>
       <footer
