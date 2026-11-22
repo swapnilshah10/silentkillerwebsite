@@ -94,6 +94,12 @@ function Navbar() {
                   <li>
                     <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://atomreaction.silentkillerop.me">Atom Reaction</a>
                   </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a className="dropdown-item bg-dark text-white" href="/games">About the games</a>
+                  </li>
                 </ul>
               </li>
 

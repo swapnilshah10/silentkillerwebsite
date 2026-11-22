@@ -453,3 +453,25 @@ button[style*="position: fixed"] {
 }
 button[style*="position: fixed"]:hover { background: var(--gold) !important; color: #111 !important; }
 @media (max-width: 767.98px) { footer { padding-bottom: 4.5rem; } }
+
+/* ============ Prose pages (privacy, terms, contact, games) & intros ============ */
+.prose-page { max-width: 760px; margin: 0 auto; padding: 3rem 1.25rem 4rem; line-height: 1.75; color: var(--text); }
+.prose-page--wide { max-width: 860px; }
+.prose-page h1 { font-size: clamp(2.1rem, 5vw, 3rem); margin-bottom: .5rem; background: linear-gradient(100deg,#8a6d3b 15%,#fff3d0 40%,#c9a96e 60%,#8a6d3b 85%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.prose-page h2 { font-size: 1.45rem; margin: 2.2rem 0 .6rem; color: var(--gold-soft); }
+.prose-page p, .prose-page li { color: #cfcac0; font-size: 1.02rem; }
+.prose-page ul { padding-left: 1.2rem; margin-bottom: 1rem; }
+.prose-page li { margin-bottom: .55rem; }
+.prose-page a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.prose-page a:hover { color: #fff; }
+.prose-page code { color: var(--gold-soft); background: rgba(255,255,255,.06); padding: .1rem .35rem; border-radius: 6px; }
+.prose-meta { color: var(--muted) !important; font-size: .78rem !important; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.game-block { border: 1px solid var(--line); background: var(--surface); border-radius: 16px; padding: 1.5rem 1.6rem; margin: 1.6rem 0; }
+.game-block h2 { margin-top: .2rem; }
+.game-link { display: inline-block; padding: .55rem 1.1rem; border: 1px solid var(--gold); border-radius: 10px; text-decoration: none !important; color: var(--gold-soft) !important; font-weight: 500; letter-spacing: .03em; transition: all .2s ease; }
+.game-link:hover { background: var(--gold); color: #111 !important; }
+.vgrid-intro { max-width: 760px; margin: 2.5rem auto 0; text-align: center; color: var(--muted); line-height: 1.75; font-size: .98rem; }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.4rem; margin-bottom: 1rem; }
+.footer-links a { color: var(--muted); text-decoration: none; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
+.footer-links a:hover { color: var(--gold) !important; }
+@media (max-width: 767.98px) { .prose-page { padding: 2rem 1.1rem 3rem; } .game-block { padding: 1.1rem 1.15rem; } }

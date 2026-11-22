@@ -50,6 +50,28 @@ function About() {
         videos and streams as much as I enjoy creating them. Don't forget to
         like, comment, and subscribe to stay updated on my latest content!
       </p>
+      <br />
+      <h2 style={{ fontSize: "1.8rem", marginTop: "1rem" }}>What you will find here</h2>
+      <p>
+        The home, Shorts, TDM and Drills pages collect my BGMI videos in one
+        place: team deathmatch highlights, short clips, and practice drills for
+        aim and movement. The Chess page gathers my chess shorts.
+      </p>
+      <p>
+        The <a href="/games">Games</a> page has three browser games I built
+        myself, Atom Reaction, Dice Chess and Ultimate Tic Tac Toe, and the{" "}
+        <a href="/projects">Projects</a> page lists the other things I have
+        made, from web apps to a trading toolkit.
+      </p>
+      <p>
+        There is also a small URL shortener at <a href="/shorten">/shorten</a>.
+        It is free to use, but links that point to harmful content are removed,
+        see the <a href="/terms">Terms</a>.
+      </p>
+      <br />
+      <p>
+        Questions, feedback or ideas? Head to the <a href="/contact">contact page</a>.
+      </p>
       </div>
     </div>
   );

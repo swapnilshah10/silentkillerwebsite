@@ -97,6 +97,14 @@ function Footer() {
           className="text-center p-4 text-light"
           style={{ backgroundColor: (0, 0, 0, 0.05) }}
         >
+          <nav aria-label="Footer" className="footer-links">
+            <a href="/games">Games</a>
+            <a href="/projects">Projects</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms</a>
+          </nav>
           © {new Date().getFullYear()} Copyright: {"\t"}
           <a className="text-reset fw-bold" href="https://silentkillerop.tech/">
             SilentkillerOP.tech

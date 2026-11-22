@@ -22,6 +22,13 @@ const Videogrid = async(props) =>{
   }
 
   const titles = { all: "Latest", shorts: "Shorts", tdm: "TDM", drills: "Drills", chess: "Chess" };
+  const intros = {
+    all: "Welcome to SilentKillerOP. This is the full library of BGMI videos from the channel: team deathmatch highlights, short clips and practice drills, newest first. Every card opens the video on YouTube. Looking for something specific? Use the Shorts, TDM and Drills pages for a focused list, or visit the Games page to play the browser games I have built.",
+    shorts: "Quick BGMI clips and funny moments from the SilentKillerOP channel, in vertical format. Tap a short to watch it on YouTube. For longer gameplay, head to the TDM page, or browse everything on the home page.",
+    tdm: "Team Deathmatch is the fastest way to sharpen aim and reflexes in BGMI, and these videos are the best of my TDM matches: close fights, high kill games and the occasional disaster. Watch for positioning ideas, spray control and how to peek corners safely.",
+    drills: "Practice drills for BGMI: short, repeatable exercises to improve recoil control, target switching and movement. Pick a drill, try it in the training ground, and compare your results with mine.",
+    chess: "Chess shorts from the channel: tricks, traps and funny blunders from real online games, from the 900s to the 1100s. A quick way to pick up opening ideas and see the mistakes everyone makes. You can also play my Dice Chess variant on the Games page.",
+  };
   const portrait = props.playlist === "shorts" || props.playlist === "chess";
 
   const items = (data && data.snippet ? data.snippet : []).filter(
@@ -56,6 +63,7 @@ const Videogrid = async(props) =>{
             </div>
           ))}
         </div>
+        {intros[props.playlist] && <p className="vgrid-intro">{intros[props.playlist]}</p>}
       </section>
     </BackgroundWrapper>
   );
