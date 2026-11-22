@@ -1,7 +1,6 @@
 // "use client"
 import React from "react";
 import Videos from "./Videos";
-import "animate.css";
 import BackToTopButton from "./BacktoTop";
 import BackgroundWrapper from "./BackGround";
 
@@ -22,60 +21,42 @@ const Videogrid = async(props) =>{
     );
   }
 
-  var myStyle = {
-    backgroundImage: `url(${background_url})`,
-    height: "100%",
-    backgroundSize: "cover",
-    backgroundRepeat: "repeat-y",
-    padding:  "10px",
-    margin: "0px",
-    border: " 10x solid black",
-    // width: "60%"
-  };
+  const titles = { all: "Latest", shorts: "Shorts", tdm: "TDM", drills: "Drills", chess: "Chess" };
+  const portrait = props.playlist === "shorts" || props.playlist === "chess";
 
-
+  const items = (data && data.snippet ? data.snippet : []).filter(
+    (el) =>
+      el.title !== "Deleted video" &&
+      el.title !== "Private video" &&
+      el.thumbnails &&
+      el.thumbnails.high &&
+      el.thumbnails.high.url
+  );
 
   return (
     <BackgroundWrapper>
-            <BackToTopButton />
-      <div className="row col-10 col-md-10 col-lg-6 m-3" style={myStyle} key="innerDivKey">
-        {loading ? (
-          <Loading />
-        ) : (
-          data &&
-          data.snippet.map((element, index) => {
-            if (
-              data.length === 0 ||
-              element.title === "Deleted video" ||
-              element.title === "Private video"
-            ) {
-              return <React.Fragment key={`fragment-${index}`} />;
-            } else {
-              if (element.thumbnails.high.url) {
-                return (
-                  <div
-                    className="col-md-4 animate__animated animate__flash animate__faster p-1"
-                    key={`video-${element.etag}-${index}`}
-                  >
-                    <Videos
-                      videoId={element.resourceId.videoId}
-                      videoTitle={element.title}
-                      thumbnail={element.thumbnails.high.url}
-                      updated={element.publishedAt}
-                      key={`video-${element.etag}-${index}`}
-                    />
-                  </div>
-                );
-              }
-              return null;
-            }
-          })
-        )}
-      </div>
-
+      <BackToTopButton />
+      <section className="vgrid-section">
+        <header className="vgrid-header">
+          <h1>{titles[props.playlist] || "Videos"}</h1>
+          <span className="vgrid-rule" aria-hidden="true" />
+        </header>
+        <div className={`vgrid ${portrait ? "vgrid--portrait" : ""}`}>
+          {items.map((element, index) => (
+            <div className="vgrid-item" key={`video-${element.etag}-${index}`}>
+              <Videos
+                videoId={element.resourceId.videoId}
+                videoTitle={element.title}
+                thumbnail={element.thumbnails.high.url}
+                updated={element.publishedAt}
+                portrait={portrait}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
     </BackgroundWrapper>
   );
-
-}
+};
 
 export default Videogrid;

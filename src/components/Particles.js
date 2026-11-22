@@ -9,7 +9,7 @@ const initEngine = async (engine) => {
 
 const App = () => {
   const options = useMemo(() => ({
-    background: { color: { value: "#07070b" } },
+    background: { color: { value: "transparent" } },
     fullScreen: { enable: true, zIndex: -1 },
     detectRetina: true,
     fpsLimit: 60,
