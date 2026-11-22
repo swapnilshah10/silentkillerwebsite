@@ -1,5 +1,4 @@
 import React from "react";
-import { isMobile } from 'react-device-detect';
  
 
 
@@ -13,24 +12,8 @@ function Footer() {
     marginTop: "auto",  
   };
 
-  let style2 = {};
-  let detecct_phone = () => {
-    if (isMobile) {
-      style2 = {
-        width: "5%",
-        whiteSpace: "nowrap",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "start",
-        alignItems: "start",
-        paddingRight: "125px",
-        color: "white",
-        
-      };
-    }
-  };
+  const style2 = {};
 
-  detecct_phone();
   return (
     <>
       <footer
@@ -114,9 +97,17 @@ function Footer() {
           className="text-center p-4 text-light"
           style={{ backgroundColor: (0, 0, 0, 0.05) }}
         >
-          © 2022 Copyright: {"\t"}
-          <a className="text-reset fw-bold" href="https://silentkillerop.tech/">
-            SilentkillerOP.tech
+          <nav aria-label="Footer" className="footer-links">
+            <a href="/games">Games</a>
+            <a href="/projects">Projects</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms</a>
+          </nav>
+          © {new Date().getFullYear()} Copyright: {"\t"}
+          <a className="text-reset fw-bold" href="https://silentkillerop.me/">
+            silentkillerop.me
           </a>
         </div>
       </footer>

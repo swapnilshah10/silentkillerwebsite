@@ -1,47 +1,40 @@
-import Image from 'next/image';
-function Videos(props) {
-  let background_url = "/background.jpg";
-  const myStyle = {
-    backgroundImage: `url(${background_url})`,
-    // width : "20rem",
-  };
+import Image from "next/image";
 
-  const myArray = props.videoTitle.split("#");
-  let date = new Date(props.updated).toGMTString();
-  date = date.slice(17, 22) + ", " + date.slice(4, 17);
+function Videos(props) {
+  const title = props.videoTitle.split("#")[0].trim() || props.videoTitle;
+  const date = new Date(props.updated).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 
   return (
-    <div style={myStyle}>
-      <div className="card-group my-2" style={myStyle}>
-        <div className="card" style={myStyle}>
-          <a
-            href={`https://www.youtube.com/watch?v=${props.videoId}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-             <Image
-              src={props.thumbnail}
-              alt="Video thumbnail"
-              // layout="responsive"
-              // className="rounded"
-              width={200} // Set appropriate width and height to maintain aspect ratio
-              height={200}
-              className="card-img-top responsive"
-              priority={false} // Set to true for images that need to load immediately
-              loading="lazy"
-              style={{ maxWidth: '100%', height: 'auto' }}
-            />
-          </a>
-          <div className="card-body">
-            <h5 className="card-title text-white">{myArray[0]}</h5>
-            <p className="card-text"></p>
-          </div>
-          <div className="card-footer">
-            <small className=""  style={{ color: '#FFFFFF8C' }}>Uploaded at {date}</small>
-          </div>
+    <a
+      className={`vcard ${props.portrait ? "vcard--portrait" : ""}`}
+      href={`https://www.youtube.com/watch?v=${props.videoId}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Watch ${title} on YouTube`}
+    >
+      <div className="vcard__media">
+        <Image
+          src={props.thumbnail}
+          alt=""
+          fill
+          sizes="(max-width: 576px) 50vw, (max-width: 992px) 33vw, 280px"
+          loading="lazy"
+          style={{ objectFit: "cover" }}
+        />
+        <span className="vcard__play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" /></svg>
+        </span>
+        <div className="vcard__caption">
+          <h3 className="vcard__title">{title}</h3>
+          <time className="vcard__date" dateTime={props.updated}>{date}</time>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 

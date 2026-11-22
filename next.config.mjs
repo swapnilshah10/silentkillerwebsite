@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
+        // Serve thumbnails straight from YouTube's CDN: skips Vercel's image optimizer (and its quota / 402s)
+        unoptimized: true,
         remotePatterns: [
           {
             protocol: 'https',
@@ -34,6 +36,10 @@ const nextConfig = {
               {
                 key: 'Referrer-Policy',
                 value: 'origin-when-cross-origin'
+              },
+              {
+                key: 'Permissions-Policy',
+                value: 'camera=(), microphone=(), geolocation=()'
               }
             ],
           },
