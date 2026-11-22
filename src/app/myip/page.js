@@ -31,7 +31,15 @@ function Videogrid() {
   useEffect(() => {
     async function getData() {
       const res = await fetchData(url);
-      setData(res);
+      // Show IPv4 only: ask an IPv4-only endpoint, else keep backend IP if it is v4.
+      let ipv4 = (res && res.ip && !String(res.ip).includes(":")) ? res.ip : null;
+      if (!ipv4) {
+        try {
+          const r = await fetch("https://api4.ipify.org?format=json");
+          ipv4 = (await r.json()).ip;
+        } catch (e) {}
+      }
+      setData({ ...res, ip: ipv4 || "IPv4 not available" });
       fetchBackground();
     }
     getData();
@@ -47,35 +55,45 @@ function Videogrid() {
   }
 
   const myStyle = {
-    backgroundColor:"black",
-    height: "600px",
-    backgroundSize: "cover",
-    backgroundRepeat: "repeat-y",
-    // padding: "10px",
-    margin: "0px",
-    border: "10px solid black",
-    width: "100%",
+    background: "rgba(10, 10, 16, 0.78)",
+    backdropFilter: "blur(10px)",
+    border: "1px solid rgba(201, 169, 110, 0.3)",
+    width: "min(92%, 560px)",
     color: "white",
-    borderRadius: "20px",
-    justifyContent: "center",
-    alignItems: "center",  
-    display: "flex",
+    borderRadius: "18px",
+    boxShadow: "0 24px 60px rgba(0,0,0,.55)",
+    padding: "2rem 2.2rem",
   };
+
+  const rows = [
+    ["IP", data.ip],
+    ["Latitude", data.lat],
+    ["Longitude", data.lon],
+    ["ISP", data.isp],
+    ["Region", data.regionName],
+    ["City", data.city],
+  ];
 
   const outer = {
     backgroundImage: `url(${background_url})`,
     backgroundSize: "cover",
     backgroundRepeat: "repeat-y",
     backgroundAttachment: "fixed",
-    height: "85vh"
+    minHeight: "85vh"
   };
 
   const outerClass = "d-flex justify-content-center align-items-center";
 
   return (
     <div className={outerClass} style={outer} key="outerDivKey">
-      <div className="justify-content-center align-items-center p-3" style={myStyle} key="innerDivKey">
-        <h1> IP: {data.ip} <br /> Latitude: {data.lat} <br /> Longitude: {data.lat} <br /> ISP: {data.isp} <br /> Region: {data.regionName} <br /> City: {data.city}</h1>    
+      <div style={myStyle} key="innerDivKey">
+        <h2 style={{ color: "#e6d3a8", marginBottom: "1.2rem" }}>Your connection</h2>
+        {rows.map(([k, v]) => (
+          <div key={k} style={{ display: "flex", justifyContent: "space-between", gap: "1rem", padding: "0.65rem 0", borderTop: "1px solid rgba(201,169,110,0.15)" }}>
+            <span style={{ color: "#8d8a82", letterSpacing: ".08em", textTransform: "uppercase", fontSize: ".8rem" }}>{k}</span>
+            <span style={{ textAlign: "right" }}>{v}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

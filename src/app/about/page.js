@@ -1,3 +1,5 @@
+export const metadata = { title: "About", description: "About Swapnil Shah: gamer, content creator and web developer behind SilentKillerOP.", alternates: { canonical: "/about" } };
+
 function About() {
   let background_url = "/background.jpg";
   var myStyle = {

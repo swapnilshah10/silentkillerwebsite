@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Playwrite+GB+S:wght@100..400&display=swap');
 
 
 .grid-background {
@@ -40,3 +40,139 @@
   /* Change this value as needed */
   font-style: normal;
 }
+
+/* ============ Classy theme layer ============ */
+:root {
+  --bg: #07070b;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --line: rgba(201, 169, 110, 0.18);
+  --gold: #c9a96e;
+  --gold-soft: #e6d3a8;
+  --text: #ece8df;
+  --muted: #8d8a82;
+  --radius: 14px;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body > :not(nav):not(footer) { flex: 1 0 auto; }
+
+::selection { background: var(--gold); color: #111; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #2a2824; border-radius: 10px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+h1, h2, h3, h4 { font-family: var(--font-serif); letter-spacing: 0.01em; font-weight: 600; }
+h1 { font-size: clamp(2rem, 4vw, 3rem); }
+
+/* Let the particle/dark backdrop show through the old inline backgrounds */
+[style*="background.jpg"] { background-image: none !important; background-color: transparent !important; }
+.playwrite-gb-s-example { font-family: var(--font-sans) !important; font-weight: 300; }
+.playwrite-gb-s-example h1, .playwrite-gb-s-example h2 { font-family: var(--font-serif) !important; color: var(--gold-soft); }
+
+a { transition: color .2s ease, opacity .2s ease; }
+
+/* Navbar */
+.navbar.bg-dark {
+  background: rgba(7, 7, 11, 0.72) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--line);
+}
+.navbar .navbar-brand img { border-radius: 50%; border: 1px solid var(--gold); padding: 1px; }
+.navbar .nav-link {
+  color: var(--muted) !important;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0.6rem 0.9rem;
+}
+.navbar .nav-link:hover, .navbar .nav-link.show { color: var(--gold-soft) !important; }
+.navbar .nav-link:not(.dropdown-toggle)::after {
+  content: ""; position: absolute; left: 0.9rem; right: 0.9rem; bottom: 0.3rem;
+  height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+}
+.navbar .nav-link:not(.dropdown-toggle):hover::after { transform: scaleX(1); }
+.dropdown-menu.bg-dark {
+  background: rgba(14, 14, 20, 0.96) !important;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+.dropdown-item.bg-dark { background: transparent !important; border-radius: 8px; font-size: 0.9rem; padding: 0.5rem 0.8rem; }
+.dropdown-item.bg-dark:hover { background: var(--surface-hover) !important; color: var(--gold-soft) !important; }
+.dropdown-divider { border-color: var(--line); }
+
+/* Cards */
+.card {
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden;
+  color: var(--text);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(201, 169, 110, 0.5) !important; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.card img { transition: transform .5s ease; }
+.card:hover img { transform: scale(1.04); }
+
+/* Forms & buttons */
+.form-control {
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  color: var(--text) !important;
+  border-radius: 10px !important;
+}
+.form-control:focus { border-color: var(--gold) !important; box-shadow: 0 0 0 3px rgba(201,169,110,.15) !important; }
+.btn { border-radius: 10px; letter-spacing: .04em; font-weight: 500; transition: all .2s ease; }
+.btn-primary, .btn-success, .btn-dark {
+  background: transparent !important; color: var(--gold-soft) !important; border: 1px solid var(--gold) !important;
+}
+.btn-primary:hover, .btn-success:hover, .btn-dark:hover { background: var(--gold) !important; color: #111 !important; }
+
+/* Projects page cards */
+.playwrite-gb-s-example > div[style*="border-radius"] {
+  background: var(--surface) !important;
+  border: 1px solid var(--line);
+  border-radius: var(--radius) !important;
+  margin: 0 auto 1rem;
+  max-width: 880px;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.playwrite-gb-s-example > div[style*="border-radius"]:hover { border-color: rgba(201,169,110,.5); transform: translateY(-2px); }
+.playwrite-gb-s-example > div[style*="border-radius"] h3 a:hover { color: var(--gold) !important; }
+.playwrite-gb-s-example > h2 { text-align: center; margin: 2rem 0 1.5rem; font-size: clamp(2rem, 4vw, 2.8rem); }
+
+/* Footer */
+footer.bg-light {
+  background: #0a0a10 !important;
+  border-top: 1px solid var(--line);
+  margin-top: 3rem;
+}
+footer a:hover { color: var(--gold) !important; }
+footer h6 { color: var(--gold-soft); letter-spacing: .14em; font-size: .8rem; }
+footer .border-bottom { border-color: transparent !important; padding: 0 !important; }
+.playwrite-gb-s-example > div[style*="border-radius"] h3 a { text-decoration: none; color: var(--gold-soft) !important; }
+.playwrite-gb-s-example > div[style*="border-radius"] p:last-child { color: var(--muted) !important; font-size: .85rem; }
+/* Equal-height video cards */
+.col-md-4 > div { height: 100%; }
+.col-md-4 .card-group { height: calc(100% - 1rem); }
+.col-md-4 .card-group .card { height: 100%; }

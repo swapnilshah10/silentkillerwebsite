@@ -79,6 +79,24 @@ function Navbar() {
                 </ul>
               </li>
 
+              {/* Games Dropdown */}
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="/" id="gamesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Games
+                </a>
+                <ul className="dropdown-menu bg-dark text-white" aria-labelledby="gamesDropdown">
+                  <li>
+                    <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://dicechess.silentkillerop.me">Dice Chess</a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://ultimatetictactoe.silentkillerop.me">Ultimate Tic Tac Toe</a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://atomreaction.silentkillerop.me">Atom Reaction</a>
+                  </li>
+                </ul>
+              </li>
+
               {/* Coding Dropdown */}
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="/" id="codingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

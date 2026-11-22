@@ -114,7 +114,7 @@ function Footer() {
           className="text-center p-4 text-light"
           style={{ backgroundColor: (0, 0, 0, 0.05) }}
         >
-          © 2022 Copyright: {"\t"}
+          © {new Date().getFullYear()} Copyright: {"\t"}
           <a className="text-reset fw-bold" href="https://silentkillerop.tech/">
             SilentkillerOP.tech
           </a>
