@@ -106,8 +106,8 @@ function Footer() {
             <a href="/terms">Terms</a>
           </nav>
           © {new Date().getFullYear()} Copyright: {"\t"}
-          <a className="text-reset fw-bold" href="https://silentkillerop.tech/">
-            SilentkillerOP.tech
+          <a className="text-reset fw-bold" href="https://silentkillerop.me/">
+            silentkillerop.me
           </a>
         </div>
       </footer>
