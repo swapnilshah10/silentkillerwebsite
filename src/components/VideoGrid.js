@@ -37,10 +37,12 @@ const Videogrid = async(props) =>{
     <BackgroundWrapper>
       <BackToTopButton />
       <section className="vgrid-section">
-        <header className="vgrid-header">
-          <h1>{titles[props.playlist] || "Videos"}</h1>
-          <span className="vgrid-rule" aria-hidden="true" />
-        </header>
+        {props.playlist !== "all" && (
+          <header className="vgrid-header">
+            <h1>{titles[props.playlist] || "Videos"}</h1>
+            <span className="vgrid-rule" aria-hidden="true" />
+          </header>
+        )}
         <div className={`vgrid ${portrait ? "vgrid--portrait" : ""}`}>
           {items.map((element, index) => (
             <div className="vgrid-item" key={`video-${element.etag}-${index}`}>

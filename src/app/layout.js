@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Footer from "@/components/Footer";
 import Navbar from '@/components/Navbar';
+import Spotlight from "@/components/Spotlight";
 
 
 
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
 
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <Spotlight />
         <Navbar />
         {children}
         <Footer />
