@@ -33,7 +33,16 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" aria-current="page" href="/">SilentkillerOP</Link>
+                <Link className="nav-link" aria-current="page" href="/">Atom Reaction</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" href="/atom-reaction/how-to-play">How to play</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" href="/atom-reaction/strategy">Strategy</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" href="/videos">Videos</Link>
               </li>
 
               <li className="nav-item">

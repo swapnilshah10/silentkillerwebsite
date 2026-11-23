@@ -11,11 +11,11 @@ import Spotlight from "@/components/Spotlight";
 export const metadata = {
   metadataBase: new URL("https://silentkillerop.me"),
   title: {
-    default: "SilentKillerOP | BGMI Gameplay, Chess Shorts & Projects",
+    default: "Atom Reaction: Free Online Strategy Game | SilentKillerOP",
     template: "%s | SilentKillerOP",
   },
   description:
-    "SilentKillerOP: BGMI gameplay, TDM and drill videos, chess shorts, browser games and developer projects by Swapnil Shah.",
+    "Atom Reaction is a free online multiplayer strategy game. Rules, strategy guides and play links, plus browser games, videos and projects by Swapnil Shah.",
   keywords: ["SilentKillerOP", "BGMI", "TDM", "chess shorts", "Swapnil Shah", "web projects", "Dice Chess", "Atom Reaction"],
   authors: [{ name: "Swapnil Shah" }],
   alternates: { canonical: "/" },
@@ -23,8 +23,8 @@ export const metadata = {
     type: "website",
     siteName: "SilentKillerOP",
     url: "https://silentkillerop.me",
-    title: "SilentKillerOP | BGMI Gameplay, Chess Shorts & Projects",
-    description: "BGMI gameplay, chess shorts, browser games and developer projects.",
+    title: "Atom Reaction: Free Online Strategy Game | SilentKillerOP",
+    description: "Free online multiplayer strategy game with rules and guides.",
     images: [{ url: "/profile.png" }],
   },
   twitter: { card: "summary", creator: "@swapnilshah102" },
