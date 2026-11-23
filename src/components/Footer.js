@@ -35,8 +35,7 @@ function Footer() {
                   </i>
                 </h6>
                 <p style={{ color: "#6c757d" }}>
-                  Here you can see the content that is uploaded by your favrite
-                  youtuber.
+                  Atom Reaction rules, strategy guides and free browser games, plus gameplay videos and projects by Swapnil Shah.
                 </p>
               </div>
               <div
@@ -98,6 +97,8 @@ function Footer() {
           style={{ backgroundColor: (0, 0, 0, 0.05) }}
         >
           <nav aria-label="Footer" className="footer-links">
+            <a href="/atom-reaction/how-to-play">How to play</a>
+            <a href="/atom-reaction/strategy">Strategy</a>
             <a href="/games">Games</a>
             <a href="/projects">Projects</a>
             <a href="/about">About</a>

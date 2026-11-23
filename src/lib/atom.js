@@ -11,9 +11,12 @@ export const faqs = [
   { q: "Can I install it like an app?", a: "Yes. On Android use the Install app option in Chrome, on iPhone use Share, then Add to Home Screen. It then opens full screen like a normal app." },
 ];
 
+import { articles } from "./articles";
+
 export const guides = [
   { href: "/atom-reaction/how-to-play", title: "How to play", blurb: "The complete rules, critical mass numbers and a worked example of a chain reaction." },
   { href: "/atom-reaction/strategy", title: "Strategy guide", blurb: "Ten practical tips for the opening, middle game, endgame and Battle Royale." },
   { href: "/atom-reaction/modes", title: "Game modes", blurb: "Online rooms, bots, pass and play, daily puzzle and Battle Royale explained." },
   { href: "/atom-reaction/faq", title: "FAQ", blurb: "Quick answers about players, bots, accounts and installing the game." },
+  ...articles.map((a) => ({ href: `/atom-reaction/${a.slug}`, title: a.h1.replace(/^Atom Reaction /, "").replace(/^./, (c) => c.toUpperCase()), blurb: a.blurb })),
 ];

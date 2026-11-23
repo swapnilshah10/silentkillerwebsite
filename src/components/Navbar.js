@@ -79,12 +79,6 @@ function Navbar() {
                   <li>
                     <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/swapnilshah102">Twitter</a>
                   </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item bg-dark text-white" href="/">Nothing else here</a>
-                  </li>
                 </ul>
               </li>
 
@@ -130,22 +124,10 @@ function Navbar() {
                   <li>
                     <a className="dropdown-item bg-dark text-white" target="_blank" rel="noopener noreferrer" href="/codingninjas">CodingNinjas</a>
                   </li>
-                  <li className="">
-                    <a className="dropdown-item bg-dark text-white" href="/myip">Your ip</a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item bg-dark text-white" href="/">Nothing else here</a>
-                  </li>
                 </ul>
               </li>
 
             </ul>
-              <Link className="nav-link   mb-2 mb-lg-0 nav-item text-white" aria-current="page"  href="/shorten">
-                Shorten URL
-              </Link>
           </div>
         </div>
       </nav>
