@@ -32,7 +32,7 @@ export default async function Article({ params }) {
   return (
     <main className="prose-page prose-page--wide">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
-      <p className="prose-meta">Atom Reaction guide · by Swapnil Shah · 23 November 2026</p>
+      <p className="prose-meta">{a.kind || "Atom Reaction guide"} · by Swapnil Shah · 23 November 2026</p>
       <h1>{a.h1}</h1>
       <p>{a.intro}</p>
       {a.sections.map((s) => (
