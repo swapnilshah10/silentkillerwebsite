@@ -4,7 +4,7 @@ import { PlayButton, GuideLinks } from "@/components/AtomPage";
 export const metadata = {
   title: "Atom Reaction Game Modes: Online, Bots, Battle Royale",
   description: "Every Atom Reaction mode explained: online rooms for up to 16 players, four bot levels, pass and play, the daily puzzle and Battle Royale.",
-  alternates: { canonical: "/atom-reaction/modes" },
+  alternates: { canonical: "https://atomreaction.in/guides/game-modes" },
 };
 
 export default function Page() {

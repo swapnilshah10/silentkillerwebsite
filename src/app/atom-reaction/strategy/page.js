@@ -4,7 +4,7 @@ import { PlayButton, GuideLinks } from "@/components/AtomPage";
 export const metadata = {
   title: "Atom Reaction Strategy: 10 Tips to Win More Games",
   description: "Ten practical Atom Reaction strategy tips: count critical mass, take corners, avoid loaded neighbours, time your chains and survive Battle Royale.",
-  alternates: { canonical: "/atom-reaction/strategy" },
+  alternates: { canonical: "https://atomreaction.in/chain-reaction-strategy" },
 };
 
 export default function Page() {

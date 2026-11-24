@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const a = getArticle(slug);
   if (!a) return {};
-  return { title: a.title, description: a.description, alternates: { canonical: `/atom-reaction/${a.slug}` } };
+  return { title: a.title, description: a.description, alternates: { canonical: `https://atomreaction.in/guides/${a.slug === "game-modes" ? "game-modes" : a.slug}` } };
 }
 
 export default async function Article({ params }) {
@@ -27,7 +27,7 @@ export default async function Article({ params }) {
     author: { "@type": "Person", name: "Swapnil Shah", url: "https://silentkillerop.me/about" },
     datePublished: "2026-11-23T00:00:00+05:30",
     dateModified: "2026-11-23T00:00:00+05:30",
-    mainEntityOfPage: `https://silentkillerop.me/atom-reaction/${a.slug}`,
+    mainEntityOfPage: `https://atomreaction.in/guides/${a.slug}`,
   };
   return (
     <main className="prose-page prose-page--wide">

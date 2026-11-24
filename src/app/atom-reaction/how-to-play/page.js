@@ -4,7 +4,7 @@ import { PlayButton, GuideLinks } from "@/components/AtomPage";
 export const metadata = {
   title: "How to Play Atom Reaction: Rules and Critical Mass",
   description: "Learn the rules of Atom Reaction: critical mass for corners, edges and inner cells, how explosions chain, and how to win. Includes a worked example.",
-  alternates: { canonical: "/atom-reaction/how-to-play" },
+  alternates: { canonical: "https://atomreaction.in/how-to-play" },
 };
 
 export default function Page() {

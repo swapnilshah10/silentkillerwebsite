@@ -3,7 +3,7 @@ import { PlayButton, GuideLinks, FaqList, FaqJsonLd } from "@/components/AtomPag
 export const metadata = {
   title: "Atom Reaction FAQ",
   description: "Answers to common questions about Atom Reaction: cost, player count, bots, Battle Royale, accounts and installing the game.",
-  alternates: { canonical: "/atom-reaction/faq" },
+  alternates: { canonical: "https://atomreaction.in/faq" },
 };
 
 export default function Page() {
